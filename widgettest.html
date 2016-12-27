@@ -1,0 +1,50 @@
+<html>
+    <header>
+        <script>
+          // ignore
+          var dojoConfig = {
+              async: true,
+              packages: [{
+                  name: "demo",
+                  location: location.pathname.replace(/\/[^/]*$/, "") + "/"
+              }]
+          };
+          // ignore
+        </script>
+    </header>
+
+    <body>
+        <!-- INSTRUCTIONS FOR INTERVIEWEE -->
+        <h1>Instructions</h1>
+        <p>
+            Please write the implementation that enables the following behavior:
+            <ul>
+                <li>Constructs a new `TextWidget`</li>
+                <li>Inits with text input and a target (use `mydiv`)</li>
+                <li>Sets the text of the target using the target's `id`</li>
+                <li>Calls a highlight method (think a highlighter pen) that highlights the target text</li>
+            </ul>
+
+            Example: <a href="http://i.imgur.com/Skp0eZn.png" target="blank">http://i.imgur.com/Skp0eZn.png</a>
+        </p>
+
+        <hr />
+
+        <!-- Target div -->
+        <div id="mydiv"></div>
+        <!-- /Target div -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+        <script type="text/javascript">
+            require([
+                "demo/TextHighlighterWidget",
+                "dojo/domReady!"
+            ], function (TextHighlighterWidget) {
+                // Constructor
+                var twc = new TextHighlighterWidget();
+                twc.init("Highlight me, bro!!", "mydiv");
+                twc.highlight("yellow");
+            });
+        </script>
+    </body>
+</html>
